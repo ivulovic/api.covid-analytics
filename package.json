@@ -1,0 +1,32 @@
+{
+  "name": "api.covid-analytics",
+  "version": "1.0.0",
+  "description": "API for the Covid Analytics project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "api",
+    "covid",
+    "analytics",
+    "serbia"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivulovic/api.covid-analytics.git"
+  },
+  "author": "Ivan Vulovic",
+  "license": "BSD 2-CLAUSE",
+  "bugs": {
+    "url": "https://github.com/ivulovic/api.covid-analytics/issues"
+  },
+  "homepage": "https://github.com/ivulovic/api.covid-analytics#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
