@@ -1,29 +1,3 @@
-// module.exports = function ({ url, options = { method: 'GET', port: 443 } }) {
-//   let result;
-//   console.log(url)
-//   const { pathname: path, host } = new URL(url);
-
-//   const req = https.request({
-//     ...options,
-//     host,
-//     path
-//   }, res => {
-//     let bufferData = '';
-//     res.on('data', chunk => {
-//       bufferData += chunk;
-//     })
-//     res.on('end', () => {
-//       result = JSON.parse(bufferData);
-//     })
-//     return result;
-//   })
-//   req.on('error', error => {
-//     console.error(error)
-//   })
-
-//   req.end()
-// }
-
 const makeRequest = function (url) {
   // return new pending promise
   return new Promise((resolve, reject) => {
