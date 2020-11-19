@@ -17,7 +17,7 @@ const makeRequest = function (url) {
     });
     // handle connection errors of the request
     request.on('error', (err) => reject(err))
-  })
+  }).catch(err => console.log('Error occured', err))
 };
 
 module.exports = makeRequest;
