@@ -5,7 +5,7 @@ module.exports = async function getCasesByTeritory() {
   if (!txtFileURL) {
     return null;
   }
-  const fileContent = await makeRequest(txtFileURL).then(txt => txt.split('\n'));
+  const fileContent = await makeRequest(txtFileURL).then(txt => txt.split('\r\n'));
   if (!fileContent) return null;
   const fetchTime = new Date().getTime();
   const result = {
