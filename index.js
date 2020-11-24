@@ -16,7 +16,14 @@ app.listen(port, async () => {
   console.log(`Main app listening on ${port}`)
   const summary = await getSummary();
   if (summary) {
-    writeFile('files/summary.json', summary)
+    if (summary.daily) {
+      const data = Object.values(summary.daily);
+      writeFile('files/dailySummary.json', data)
+    }
+    if (summary.monthly) {
+      const data = Object.values(summary.monthly);
+      writeFile('files/monthlySummary.json', data)
+    }
   }
   const casesByTerritory = await getCasesByTeritory();
   if (casesByTerritory) {
