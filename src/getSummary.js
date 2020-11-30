@@ -44,7 +44,7 @@ module.exports = async function getSummary() {
     daily: {},
     monthly: {},
   };
-
+  let sumHospitalized = 0;
   result.data.forEach((x, i) => {
     const d = new Date(x.date);
     const isLastRecord = result.data.length - 1 === i;
@@ -54,17 +54,25 @@ module.exports = async function getSummary() {
     const lastDay = isLastRecord ? day : new Date(y, m, 0).getDate();
 
     if (keysMapper[x.description]) {
+
       dataByCategory.daily[x.date] = {
         ...dataByCategory.daily[x.date],
         date: x.date,
         [keysMapper[x.description]]: x.value
+      };
+      if (x.description === 'BROJ_HOSPITALIZOVANIH_LICA_ZA_DATI_DATUM') {
+        sumHospitalized += x.value;
+        dataByCategory.daily[x.date].sumHospitalized = sumHospitalized;
       }
     }
 
     if (day === lastDay) {
       if (keysMapper[x.description]) {
-        dataByCategory.monthly[x.date] = dataByCategory.daily[x.date]
+        dataByCategory.monthly[x.date] = dataByCategory.daily[x.date];
       }
+      // if (x.description === 'BROJ_HOSPITALIZOVANIH_LICA_ZA_DATI_DATUM') {
+      //   sumHospitalized = 0;
+      // }
     }
   })
 
